@@ -1,0 +1,362 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #1d1d2a;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+/* Логотип */
+.logo-container {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-left: 2%;
+    height: 150px;
+    width: 150px;
+}
+
+/* Стили для SVG логотипа */
+.logo {
+    width: 100px; /* Установите желаемую ширину */
+    height: 100px; /* Установите желаемую высоту */
+    position: relative;
+    left: 25px;
+}
+
+.logo-text-1, .logo-text-2 {
+    display: flex;
+    justify-content: center;
+
+}
+
+.logo-text-1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #ffc600;
+}
+
+.logo-text-2 {
+    /*font-size: 14px;
+    text-transform: uppercase;*/
+    color: white;
+}
+
+:root {
+    --animation-duration: 1600;
+}
+
+.circle-center {
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 1vh 1px var(--color);
+    position: relative;
+    top: 52px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.75s;
+}
+
+
+svg {
+    width: 100%;
+    height: 100%;
+
+}
+
+circle {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    fill:none;
+    stroke: var(--color);
+    stroke-width: 3;
+    stroke-dasharray: 310;
+    stroke-dashoffset: 310;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: calc(var(--animation-duration) * 1ms);
+    transform-origin: center;
+    transition: 0.75s;
+}
+
+@keyframes drawCircle {
+    to {
+        stroke-dashoffset: -310;
+    }
+}
+
+circle:nth-child(1) {
+    stroke: #a34335;
+    transform: rotateX(80deg) rotateY(20deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle1;
+}
+
+@keyframes rotateCircle1 {
+    to {
+        transform: rotateX(80deg) rotateY(20deg) rotateZ(360deg)
+    }
+}
+
+circle:nth-child(2) {
+    stroke: #e5b166;
+    transform: rotateX(75deg) rotateY(60deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle2;
+    animation-delay: 125ms;
+}
+
+@keyframes rotateCircle2 {
+    to {
+        transform: rotateX(75deg) rotateY(60deg) rotateZ(360deg)
+    }
+}
+
+circle:nth-child(3) {
+    stroke: #f7ed5a;
+    transform: rotateX(-75deg) rotateY(60deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle3;
+    animation-delay: 250ms;
+}
+
+@keyframes rotateCircle3 {
+    to {
+        transform: rotateX(-75deg) rotateY(60deg) rotateZ(360deg)
+    }
+}
+
+circle:nth-child(4) {
+    stroke: #c5df84;
+    transform: rotateX(-80deg) rotateY(20deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle4;
+    animation-delay: 375ms;
+}
+
+@keyframes rotateCircle4 {
+    to {
+        transform: rotateX(-80deg) rotateY(20deg) rotateZ(360deg)
+    }
+}
+
+
+menu {
+    display: flex;
+    padding: 0;
+    margin-left: 23%;
+}
+
+menu a {
+    text-decoration: none;
+    color: white;
+    margin-right: 30px;
+    font-size: 19px;
+}
+
+menu a:hover {
+    color: #ffc600;
+}
+
+menu a:last-child {
+    margin-right: 0;
+}
+
+.auth-box {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: block;
+    align-items: center; /* Выравнивание по вертикали по центру */
+    padding: 0px; /* Отступы внутри блока */
+    border-radius: 10px; /* Скругление углов блока */
+    position: absolute;
+    right: 30px;
+
+}
+
+.login-button {
+    background-color: #ffc600; /* Цвет фона кнопки "Войти" */
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругление углов кнопки */
+    margin-right: 20px; /* Отступ между кнопками */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.register-button {
+    background-color: #ffc600; /* Цвет фона кнопки "Регистрация" */
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    position: relative;
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругление углов кнопки */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.login-button:hover {
+    color: white;
+    background-color: #46394B;
+}
+
+.register-button:hover {
+    color: white;
+    background-color: #46394B;
+}
+
+.main-content {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+}
+
+.news {
+    position: relative;
+    margin-left: 2%;
+}
+
+.news h2 {
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 3%;
+}
+
+.news h5, .news h4 {
+    font-weight: normal;
+    position: relative;
+    margin-left: 1%;
+}
+
+.news h5 {
+    opacity: 90%;
+    position: relative;
+    margin-left: 1.5%;
+}
+
+/* forms */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form_content {
+    background-color: #f5f5f5;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.form_content h1 {
+    text-align: center;
+}
+
+.form_content p {
+    text-align: center;
+}
+
+form {
+    margin-left: 0%;
+}
+
+form p {
+    width:100%;
+    overflow:auto;
+}
+
+label {
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px;
+}
+
+input, textarea {
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#c8c8c8;
+    border:0;
+    padding:6px 10px;
+    font-size:14px;
+    border-radius: 5px;
+}
+
+input[type=submit], a.button {
+    background: #ffc600;
+    color: black;
+    padding:10px 20px;
+    font-size:17px;
+    text-transform:uppercase;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+input[type=submit]:hover, a.button:hover {
+    color: white;
+    background-color: #46394B;
+}
+
+
+
+form input[type="radio"] {
+    margin-right: 10px;
+    display: block;
+}
+
+form input[type="radio"] + label {
+    text-decoration: underline;
+    text-decoration-style: dashed; /* Стиль подчеркивания (например, пунктирное) */
+    text-decoration-color: red;
+}
+
+.errorlist {
+    color:#cc0033;
+    float:left;
+    clear:both;
+    padding-left:10px;
+}
+
+.helptext {
+    margin:0 0 20px 0;
+    color:#aaa;
+    clear:both;
+    float:left;
+    font-size:13px;
+}
+
+.space {
+    background-color: #f5f5f5;
+    margin-top: 30%;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: -25px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer a {
+    color: #ffc600;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

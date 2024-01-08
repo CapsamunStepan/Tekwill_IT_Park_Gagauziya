@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+{% block title %}News{% endblock %}
+{% block content %}
+    <section class="news">
+        {% for x in news %}
+        <h2>{{ x.title }}</h2>
+        <h5>{{ x.published }}</h5>
+        <h4>{{ x.body }}</h4>
+        {% endfor %}
+    </section>
+{% endblock %}
+

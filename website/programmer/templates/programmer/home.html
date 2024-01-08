@@ -1,0 +1,15 @@
+{% extends "programmer/base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="home_content">
+  <h1>Доброго времени суток, программист {{ user.first_name }} {{ user.last_name }}</h1>
+  {% if has_portfolio %}
+    <h3>У вас уже есть Портфолио</h3>
+  {% else %}
+    <h3>Создайте Портфолио, чтобы показать свои навыки заказчикам</h3>
+    <a href="{% url 'programmer:create_portfolio' %}">Создать Портфолио</a>
+  {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "customer/base.html" %}
+{% load static %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+
+
+{% if access_denied %}
+    <div id="access-denied-message" style="display: none;">
+      <p>Доступ запрещен</p>
+            <div class="cross-loading">
+                <div class="customElement">
+                    <div class="customBorder" id="close-button" onclick="closeAccessDenied()"></div>
+                </div>
+                <div class="cross"></div>
+                <div class="cross2"></div>
+            </div>
+
+    </div>
+    <div class="return-button">
+        <a href="{% url 'customer:view_orders' %}">Вернуться к заказам</a>
+    </div>
+
+{% else %}
+    <div class="order-container">
+        <h1>{{ order.title }}</h1>
+        <h3>{{ order.full_subscription }}</h3>
+        {% if order.price %}
+            <h3>Цена: {{ order.price }} mdl</h3>
+        {% else %}
+            <h3>Цена: Договорная</h3>
+        {% endif %}
+        <h3>Владелец: {{ order.user.first_name }} {{ order.user.last_name }}</h3>
+        <h3>Создано: {{ order.created }}</h3>
+        <h3>Изменено: {{ order.updated }}</h3>
+        {% if order.taken %}
+            <h3>{{ order.taken }} программистом {{ order.programmer.first_name }} {{ order.programmer.last_name }}</h3>
+        {% else %}
+            <h3>Заказ ещё никто не начал выполнять</h3>
+        {% endif %}
+    </div>
+    <div class="order-container">
+
+        <h2>Комментарии</h2>
+        {% for comment in comments %}
+            <div class="inline-comment">
+                {% if comment.user.username == order.user.username %}
+                    <div class="comment-author">Заказчик: </div>
+                {% else %}
+                    <div class="comment-author">{{ comment.user.first_name }}: </div>
+                {% endif %}
+                    <div class="comment-text">{{ comment.text }}</div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="new-comment-container">
+        <!-- Форма для добавления нового комментария -->
+        <form method="post">
+            {% csrf_token %}
+            <h3>Добавить комментарий</h3>
+                {{ form.text }}
+            <p><input type="submit" value="Добавить комментарий"></p>
+        </form>
+    </div>
+
+{% endif %}
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{% static 'customer/js/access-denied.js' %}"></script>
+
+{% endblock %}

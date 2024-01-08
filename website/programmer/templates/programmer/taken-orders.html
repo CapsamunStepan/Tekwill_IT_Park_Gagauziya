@@ -1,0 +1,40 @@
+{% extends "programmer/base.html" %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+    <section class="taken-orders">
+        {% if orders %}
+            <h1 style="text-align: center;">Здесь заказы за которые вы взялись!</h1>
+            {% for order in orders %}
+            <div class="order-container">
+                <div class="inline-info">
+                    <div class="order-title"><a href="{% url 'programmer:order_detail' order_id=order.id %}">{{ order.title }}</a></div>
+                    <!-- {% url 'programmer:order_detail' order_id=order.id %} -->
+                    <div class="taken">{{ order.taken }} {{ order.programmer.first_name }} принял Заказ</div>
+                </div>
+                <div class="order-line">
+                    <div class="order-author"> {{ order.user.first_name }} {{ order.user.last_name }} </div>
+                    <div class="last-update"> {{ order.updated }}</div>
+                </div>
+
+                <div class="order-body"> {{ order.full_subscription }} </div>
+                {% if order.price %}
+                    <div class="order-price">Цена: {{ order.price }} mdl</div>
+                {% else %}
+                    <div class="order-price">Цена: Договорная</div>
+                {% endif %}
+                <form method="post" action="{% url 'programmer:delete_order' %}">
+                    {% csrf_token %}
+                    <div class="buttons_">
+                        <div class="delete">
+                            <input type="hidden" name="order_id" value="{{ order.id }}">
+                            <button type="submit">Удалить Заказ</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h1 style="text-align: center;">Вы не приняли ни одного заказа</h1>
+        {% endif %}
+    </section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'customer/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'customer/css/access-denied.css' %}">
+    <link rel="icon" href="{% static 'home/favicon/favicon.ico' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{% url 'customer:customer_home' %}">
+                <div class="circle-center"></div>
+                <svg class="logo" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                </svg>
+            </a>
+            <div class="logo-text-1">IT Park</div>
+            <div class="logo-text-2">Juniors Gagauziya</div>
+
+        </div>
+        <menu>
+            <a href="{% url 'customer:news_view' %}">Новости</a>
+            <a href="{% url 'customer:view_programmers' %}">Программисты</a>
+            <a href="{% url 'customer:create_order' %}">Оформить заказ</a>
+            <a href="{% url 'customer:view_orders' %}">Мои заказы</a>
+            <a href="{% url 'customer:404' %}">Контакты</a>
+        </menu>
+        <div class="auth-box">
+            <a href="{% url 'customer:logout' %}" class="logout-button">Выйти</a>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+
+    <section class="space">
+
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> IT Park Gagauziya. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'customer/js/script.js' %}"></script>
+<script src="{% static 'customer/js/highlight.js' %}"></script>
+
+
+
+</html>

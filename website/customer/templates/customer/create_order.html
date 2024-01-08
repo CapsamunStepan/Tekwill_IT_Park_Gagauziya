@@ -1,0 +1,49 @@
+{% extends "customer/base.html" %}
+{% block title %}Create{% endblock %}
+{% block content %}
+<div class="beautify-form-container">
+    <div class='create-order'>
+        <div class="text">
+            <h1>Оформление Заказа</h1>
+        </div>
+
+        <div class="create-order-container">
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <div class="label_">
+                Название:
+            </div>
+<!--            {{ form.title.label_tag }} ////css style via label {} -->
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            <div class="label_">
+                Полное описание:
+            </div>
+<!--            {{ form.full_subscription.label_tag }}-->
+            {{ form.full_subscription }}
+        </div>
+
+        <div class="form-group">
+            <div class="label_">
+                Цена:
+            </div>
+<!--            {{ form.price.label_tag }}-->
+            <p>
+                {{ form.price }} mdl
+            </p>
+
+
+        </div>
+
+        <p><input type="submit" value="Оформить Заказ"></p>
+    </form>
+</div>
+
+    </div>
+</div>
+
+{% endblock %}

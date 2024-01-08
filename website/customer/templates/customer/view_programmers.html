@@ -1,0 +1,29 @@
+{% extends "customer/base.html" %}
+{% block title %}Programmers{% endblock %}
+{% block content %}
+{% for programmer in programmers %}
+<div class="portfolio">
+    <div class="info-container">
+         <h1>{{ programmer.user.first_name }} {{ programmer.user.last_name }}</h1>
+        <div class="info-description">
+            <div class="image-container">
+                <img src="{{ programmer.image.url }}" alt="photo">
+            </div>
+            <div class="description-container">
+                <h3>Email:</h3>
+                {{ programmer.user.email }}
+                 <h3>Образование:</h3>
+                {{ programmer.education }}
+                <h3>Качества:</h3>
+                {{ programmer.qualities }}
+                <h3>Навыки и умения:</h3>
+                {{ programmer.abilities }}
+                <h3>Награды:</h3>
+                {{ programmer.awards }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

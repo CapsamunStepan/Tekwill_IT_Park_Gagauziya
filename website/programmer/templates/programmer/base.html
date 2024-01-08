@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'programmer/css/styles.css' %}">
+    <link rel="icon" href="{% static 'home/favicon/favicon.ico' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{% url 'programmer:programmer_home' %}">
+                <div class="circle-center"></div>
+                <svg class="logo" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                </svg>
+            </a>
+            <div class="logo-text-1"><a href="{% url 'programmer:programmer_home' %}">IT Park</a></div>
+            <div class="logo-text-2"><a href="{% url 'programmer:programmer_home' %}">Juniors Gagauziya</a></div>
+        </div>
+        <menu>
+            <a href="{% url 'programmer:news_view' %}">Новости</a>
+            <a href="{% url 'programmer:view_portfolio' %}">Портфолио</a>
+            <a href="{% url 'programmer:view_orders' %}">Заказы</a>
+            <a href="{% url 'programmer:taken_orders' %}">Принятые заказы</a>
+            <a href="{% url 'programmer:contacts' %}">Контакты</a>
+        </menu>
+        <div class="profile-icon">
+            <a href="{% url 'programmer:view_profile' %}" class="profile-link">
+                <div class="icon-head"></div>
+            </a>
+            <a href="{% url 'programmer:view_profile' %}" class="profile-link">
+                <div class="icon-body"></div>
+            </a>
+        </div>
+        <div class="auth-box">
+            <a href="{% url 'programmer:logout' %}" class="logout-button">Выйти</a>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+
+    <section class="space">
+
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> IT Park Gagauziya. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+<script src="{% static 'programmer/js/script.js' %}"></script>
+<script src="{% static 'programmer/js/dd.js' %}"></script>
+</html>

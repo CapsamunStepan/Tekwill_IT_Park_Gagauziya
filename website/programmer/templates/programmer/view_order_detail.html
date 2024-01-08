@@ -1,0 +1,39 @@
+{% extends "programmer/base.html" %}
+{% load static %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+<h1>{{ order.title }}</h1>
+<h3>{{ order.full_subscription }}</h3>
+{% if order.price %}
+    <h3>Цена: {{ order.price }} mdl</h3>
+{% else %}
+    <h3>Цена: Договорная</h3>
+{% endif %}
+<h3>{{ order.user.first_name }} {{ order.user.last_name }} Владелец</h3>
+<h3>{{ order.programmer.first_name }} {{ order.programmer.last_name }}</h3>
+<h3>{{ order.created }}</h3>
+<h3>{{ order.updated }}</h3>
+{% if order.taken %}
+    <h3>{{ order.taken }}</h3>
+{% else %}
+    <h3>Заказ ещё никто не начал выполнять</h3>
+{% endif %}
+
+<h2>Comments</h2>
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment.text }} (by {{ comment.user.username }})</li>
+    {% endfor %}
+</ul>
+
+<!-- Форма для добавления нового комментария -->
+<form method="post">
+    {% csrf_token %}
+    <h3>Добавить комментарий</h3>
+    <div class="comment-text">
+        {{ form.text }}
+    </div>
+    <p><input type="submit" value="Добавить комментарий"></p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/css/styles.css' %}">
+    <link rel="icon" href="{% static 'home/favicon/favicon.ico' %}">
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{% url 'home:home' %}">
+                <div class="circle-center"></div>
+                <svg class="logo" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                    <circle cx="50" cy="50" r="49" />
+                </svg>
+            </a>
+            <div class="logo-text-1">IT Park</div>
+            <div class="logo-text-2">Juniors Gagauziya</div>
+        </div>
+        <menu>
+            <a href="{% url 'home:news_view' %}">Новости</a>
+            <a href="#">Программисты</a>
+            <a href="#">О нас</a>
+            <a href="#">Контакты</a>
+        </menu>
+        <div class="auth-box">
+            <div class="auth-buttons">
+                    <a href="{% url 'account:login' %}" class="login-button">Войти</a>
+                    <a href="{% url 'account:register' %}" class="register-button">Регистрация</a>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+
+
+    <section class="space">
+
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> IT Park Gagauziya. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'home/js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "customer/base.html" %}
+{% block title %}Order{% endblock %}
+{% block content %}
+{% if orders %}
+    {% for order in orders %}
+
+    <div class="order-container">
+        <div class="inline-info">
+            <div class="order-title"><a href="{% url 'customer:order_detail' order_id=order.id %}">{{ order.title }}</a></div>
+            {% if order.programmer %}
+                <div class="taken">{{ order.taken }} выполняет {{ order.programmer.first_name }}</div>
+            {% endif %}
+        </div>
+        <div class="order-line">
+            <div class="last-update"> {{ order.updated }}</div>
+        </div>
+        <div class="order-body"> {{ order.full_subscription }} </div>
+        {% if order.price %}
+            <div class="order-price">Цена: {{ order.price }} mdl</div>
+        {% else %}
+            <div class="order-price">Цена: Договорная</div>
+        {% endif %}
+        <!--
+        <div class="buttons">
+            <div class="edit">
+                <a href="#">Edit</a>
+            </div>
+
+            <div class="delete">
+                <a href="#">Delete Order</a>
+            </div>
+
+        </div>
+-->
+
+    </div>
+    {% endfor %}
+
+    {% else %}
+        <h1>Вы не оформили ни одного Заказа!</h1>
+    {% endif %}
+
+
+{% endblock %}

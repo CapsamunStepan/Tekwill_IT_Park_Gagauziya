@@ -1,0 +1,12 @@
+{% extends "programmer/base.html" %}
+{% load static %}
+{% block title %}Portfolio{% endblock %}
+{% block content %}
+<div class="profile">
+    <h3>Привет, {{ user.first_name }}</h3>
+    {{ user }}
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "programmer/base.html" %}
+{% load static %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+    {% if orders %}
+    {% for order in orders %}
+
+    <div class="order-container">
+
+        <div class="order-title"><a href="{% url 'programmer:order_detail' order_id=order.id %}">{{ order.title }}</a></div>
+        <!-- {% url 'programmer:order_detail' order_id=order.id %} -->
+        <div class="order-line">
+            <div class="order-author"> {{ order.user.first_name }} {{ order.user.last_name }} </div>
+            <div class="last-update"> {{ order.updated }}</div>
+        </div>
+        <div class="order-body"> {{ order.full_subscription }} </div>
+        {% if order.price %}
+            <div class="order-price">Цена: {{ order.price }} mdl</div>
+        {% else %}
+            <div class="order-price">Цена: Договорная</div>
+        {% endif %}
+        <!--<h1>{{ order.id }}</h1> -->
+        <form method="post" action="{% url 'programmer:take_order' %}">
+            {% csrf_token %}
+        <div class="buttons_">
+            <div class="take">
+                <input type="hidden" name="order_id" value="{{ order.id }}">
+                <button type="submit">Принять заказ</button>
+            </div>
+        </div>
+        </form>
+    </div>
+    {% endfor %}
+
+    {% else %}
+        <h1>Новых заказов нет!</h1>
+    {% endif %}
+
+
+{% endblock %}

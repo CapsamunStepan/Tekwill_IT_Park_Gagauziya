@@ -1,0 +1,30 @@
+{% extends "programmer/base.html" %}
+{% load static %}
+{% block title %}Portfolio{% endblock %}
+{% block content %}
+<div class="portfolio">
+    <div class="info-container">
+         <h1>Привет, {{ user.first_name }} {{ user.last_name }}</h1>
+        <div class="info-description">
+            <div class="image-container">
+                <img src="{{ portfolio.image.url }}" alt="photo">
+            </div>
+            <div class="description-container">
+                 <h3>Образование:</h3>
+                {{ portfolio.education }}
+                <h3>Качества:</h3>
+                {{ portfolio.qualities }}
+                <h3>Навыки и умения:</h3>
+                {{ portfolio.abilities }}
+                <h3>Награды:</h3>
+                {{ portfolio.awards }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="buttons">
+    <div class="edit">
+        <a href="{% url 'programmer:edit_portfolio' %}">Редактировать Портфолио</a>
+    </div>
+</div>
+{% endblock %}

@@ -139,11 +139,18 @@ def view_order_detail(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     if request.method == 'POST':
         form = CommentForm(request.POST)
-        if form.is_valid():
-            form.instance.order = order
-            form.instance.user = request.user
-            form.save()
-            form = CommentForm()
+        if 'done_button' in request.POST:
+            order.is_done = True
+            order.save()
+        elif 'edit_button' in request.POST:
+            order.is_done = False
+            order.save()
+        elif 'add_comm' in request.POST:
+            if form.is_valid():
+                form.instance.order = order
+                form.instance.user = request.user
+                form.save()
+                form = CommentForm()
     else:
         form = CommentForm()
     comments = order.comments.all()

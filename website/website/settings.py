@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'programmer.apps.ProgrammerConfig',
     'customer.apps.CustomerConfig',
     'corsheaders',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
+ASGI_APPLICATION = 'website.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

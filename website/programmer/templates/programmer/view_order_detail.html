@@ -5,24 +5,36 @@
 <h1>{{ order.title }}</h1>
 <h3>{{ order.full_subscription }}</h3>
 {% if order.price %}
-    <h3>Цена: {{ order.price }} mdl</h3>
+<h3>Цена: {{ order.price }} mdl</h3>
 {% else %}
-    <h3>Цена: Договорная</h3>
+<h3>Цена: Договорная</h3>
 {% endif %}
-<h3>{{ order.user.first_name }} {{ order.user.last_name }} Владелец</h3>
-<h3>{{ order.programmer.first_name }} {{ order.programmer.last_name }}</h3>
-<h3>{{ order.created }}</h3>
-<h3>{{ order.updated }}</h3>
+<h3>Заказчик: {{ order.user.first_name }} {{ order.user.last_name }}</h3>
+<h3>Выполняет: {{ order.programmer.first_name }} {{ order.programmer.last_name }}</h3>
+<h3>Создано: {{ order.created }}</h3>
+<h3>Обновлено: {{ order.updated }}</h3>
 {% if order.taken %}
-    <h3>{{ order.taken }}</h3>
+<h3>Принят на выполнение: {{ order.taken }}</h3>
 {% else %}
-    <h3>Заказ ещё никто не начал выполнять</h3>
+<h3>Заказ ещё никто не начал выполнять</h3>
+{% endif %}
+{% if order.is_done %}
+<h2>Заказ выполнен</h2>
+<form method="post">
+    {% csrf_token %}
+    <p><input type="submit" name="edit_button" value="Отменить выполнение"></p>
+</form>
+{% else %}
+<form method="post">
+    {% csrf_token %}
+    <p><input type="submit" name="done_button" value="Подтвердить выполнение"></p>
+</form>
 {% endif %}
 
 <h2>Comments</h2>
 <ul>
     {% for comment in comments %}
-        <li>{{ comment.text }} (by {{ comment.user.username }})</li>
+    <li>{{ comment.text }} (by {{ comment.user.first_name }} {{ comment.user.last_name }})</li>
     {% endfor %}
 </ul>
 
@@ -33,7 +45,8 @@
     <div class="comment-text">
         {{ form.text }}
     </div>
-    <p><input type="submit" value="Добавить комментарий"></p>
+    <p><input type="submit" name='add_comm' value="Добавить комментарий"></p>
 </form>
+
 
 {% endblock %}

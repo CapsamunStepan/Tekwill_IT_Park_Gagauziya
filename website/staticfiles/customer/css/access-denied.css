@@ -1,0 +1,101 @@
+#access-denied-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 25px;
+  margin: 50px;
+  padding: 0px;
+  background-color: white;
+  box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.5);
+  z-index: 9999;
+}
+
+#close-button {
+  position: relative;
+  right: auto;
+  cursor: pointer;
+}
+
+.customElement {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    animation: clockwiseFill 1.8s linear forwards;
+}
+
+.customBorder {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.cross-loading {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cross, .cross2 {
+    width: 3px;
+    height: 22px;
+    background-color: white;
+    position: absolute;
+    margin-left: 0.5px;
+    margin-top: 0.5px;
+    border-radius: 40%;
+    transform: rotate(45deg);
+    animation: clockwise 1.8s linear forwards;
+}
+
+.cross2 {
+    transform: rotate(135deg)
+}
+
+
+
+
+
+@keyframes clockwiseFill {
+    0% {
+        transform: rotate(0deg);
+        border-top-color: red;
+    }
+
+    25% {
+        transform: rotate(90deg);
+        border-right-color: orange;
+    }
+
+    50% {
+        transform: rotate(180deg);
+        border-right-color: red;
+        border-bottom-color: orange;
+    }
+
+    75% {
+        transform: rotate(270deg);
+        border-bottom-color: red;
+        border-left-color: orange;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        border: 5px solid red;
+    }
+}
+
+@keyframes clockwise {
+    50% {
+        background-color: orange;
+    }
+
+    100% {
+        background-color: red;
+    }
+}

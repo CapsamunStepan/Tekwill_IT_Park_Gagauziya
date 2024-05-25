@@ -1,0 +1,768 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+header {
+    background-color: #1d1d2a;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Логотип */
+.logo-container {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-left: 2%;
+    height: 150px;
+    width: 150px;
+}
+
+/* Стили для SVG логотипа */
+.logo {
+    width: 100px; /* Установите желаемую ширину */
+    height: 100px; /* Установите желаемую высоту */
+    position: relative;
+    left: 25px;
+}
+
+.logo-text-1, .logo-text-2 {
+    display: flex;
+    justify-content: center;
+
+}
+
+.logo-text-1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #ffc600;
+}
+
+.logo-text-2 {
+    /*font-size: 14px;
+    text-transform: uppercase;*/
+    color: white;
+}
+
+:root {
+    --animation-duration: 1600;
+}
+
+.circle-center {
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 1vh 1px var(--color);
+    position: relative;
+    top: 52px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.75s;
+}
+
+
+svg {
+    width: 100%;
+    height: 100%;
+
+}
+
+circle {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    fill:none;
+    stroke: var(--color);
+    stroke-width: 3;
+    stroke-dasharray: 310;
+    stroke-dashoffset: 310;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: calc(var(--animation-duration) * 1ms);
+    transform-origin: center;
+    transition: 0.75s;
+}
+
+@keyframes drawCircle {
+    to {
+        stroke-dashoffset: -310;
+    }
+}
+
+circle:nth-child(1) {
+    stroke: #a34335;
+    transform: rotateX(80deg) rotateY(20deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle1;
+}
+
+@keyframes rotateCircle1 {
+    to {
+        transform: rotateX(80deg) rotateY(20deg) rotateZ(360deg)
+    }
+}
+
+circle:nth-child(2) {
+    stroke: #e5b166;
+    transform: rotateX(75deg) rotateY(60deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle2;
+    animation-delay: 125ms;
+}
+
+@keyframes rotateCircle2 {
+    to {
+        transform: rotateX(75deg) rotateY(60deg) rotateZ(360deg)
+    }
+}
+
+circle:nth-child(3) {
+    stroke: #f7ed5a;
+    transform: rotateX(-75deg) rotateY(60deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle3;
+    animation-delay: 250ms;
+}
+
+@keyframes rotateCircle3 {
+    to {
+        transform: rotateX(-75deg) rotateY(60deg) rotateZ(360deg)
+    }
+}
+
+circle:nth-child(4) {
+    stroke: #c5df84;
+    transform: rotateX(-80deg) rotateY(20deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle4;
+    animation-delay: 375ms;
+}
+
+@keyframes rotateCircle4 {
+    to {
+        transform: rotateX(-80deg) rotateY(20deg) rotateZ(360deg)
+    }
+}
+
+
+menu {
+    position: relative;
+    left: 14.8%;
+    display: flex;
+    padding: 0;
+}
+
+menu a {
+    text-decoration: none;
+    color: white;
+    margin-right: 30px;
+    font-size: 19px;
+}
+
+menu a:hover {
+    color: #ffc600;
+}
+
+menu a:last-child {
+    margin-right: 0px;
+}
+
+.auth-box {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали по центру */
+    padding: 10px; /* Отступы внутри блока */
+    border-radius: 10px; /* Скругление углов блока */
+}
+
+
+
+.logout-button {
+    position: relative;
+    background-color: #ffc600; /* Цвет фона кнопки "Регистрация" */
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    right: 30px;
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругление углов кнопки */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.logout-button:hover {
+    color: white;
+    background-color: #46394B;
+}
+
+
+.home_content {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+}
+
+.home_content a {
+    color: black;
+    font-size: 19px;
+    text-decoration: None;
+
+}
+
+.home_content a:hover {
+    color: #ffc600;
+
+}
+
+.p404 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.news {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.news-container {
+    background: white;
+    margin: 50px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.5);
+}
+
+.news h2 {
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 10px;
+}
+
+.news h5, .news h4 {
+    font-weight: normal;
+    position: relative;
+    margin-left: 2%;
+}
+
+.news h5 {
+    opacity: 70%;
+}
+
+
+
+/* forms */
+
+.form_content {
+    background-color: #f5f5f5;
+    padding: 0;
+    margin: 0;
+}
+
+.form_content h1 {
+    text-align: center;
+}
+
+.form_content p {
+    text-align: center;
+}
+
+
+form p {
+    width:100%;
+    overflow:auto;
+}
+
+.label_ {
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px;
+}
+
+input, textarea {
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background: white;
+    border:0;
+    padding:6px 10px;
+    font-size:14px;
+    border-radius: 5px;
+}
+
+input[type=text] {
+    width: 330px;
+}
+
+textarea {
+    width: 330px;
+}
+
+input[type=submit], a.button {
+    background: #ffc600;
+    color: black;
+    padding:10px 20px;
+    font-size:17px;
+    text-transform:uppercase;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+input[type=submit]:hover, a.button:hover {
+    color: white;
+    background-color: #46394B;
+}
+
+form input[type="radio"] {
+    margin-right: 10px;
+    display: block;
+}
+
+
+.errorlist {
+    color:#cc0033;
+    float:left;
+    clear:both;
+    padding-left:10px;
+}
+
+.helptext {
+    margin:0 0 20px 0;
+    color:#aaa;
+    clear:both;
+    float:left;
+    font-size:13px;
+}
+
+.beautify-form-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.create-order h1, p {
+    text-align: center;
+}
+
+.create-order {
+    background-color: #46394B80;
+    border-radius: 10px;
+    padding: 0 20px;
+}
+
+.create-order-container {
+    display: flex;
+    justify-content: center;
+}
+
+.space {
+    background-color: #f5f5f5;
+    margin-top: 30%;
+    text-align: center;
+}
+
+.ghost-container {
+    margin: 0 auto;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-top: 7%;
+    transform: scale(1.4);
+    opacity: 90%;
+}
+
+.ghost {
+    width: 50%;
+    height: 53%;
+    left: 25%;
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    background-color: #a49ea6;
+    border: 1px solid #555555;
+    border-bottom: 0px solid #a49ea6;
+    animation: float 2s ease-out infinite;
+}
+
+.ghost-copy {
+    width: 50%;
+    height: 53%;
+    left: 25%;
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    background-color:  #a49ea6;
+    border: 1px solid #555555;
+    border-bottom: none;
+    animation: float 2s ease-out infinite;
+    z-index: 0;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    top: 20%;
+}
+
+.eye, .eye-right {
+    position: absolute;
+    background: #585959;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    top: 40%;
+}
+
+.eye {
+    left: 25%;
+}
+
+.eye-right {
+    right: 25%;
+}
+
+.mouth {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    border: 3px solid;
+    border-radius: 50%;
+    border-color: transparent #585959 #585959 transparent;
+    transform: rotate(45deg);
+}
+
+.one, .two, .three, .four {
+    position: absolute;
+    background: #a49ea6;
+    top: 85%;
+    width: 25%;
+    height: 23%;
+    border: 1px solid #555555;
+    z-index: 0;
+}
+
+.one {
+    border-radius: 0 0 100% 30%;
+    left: -1px;
+}
+
+.two {
+    left: 23%;
+    border-radius: 0 0 50% 50%;
+}
+
+.three {
+    left: 50%;
+    border-radius: 0 0 50% 50%;
+}
+
+.four {
+    left: 74%;
+    border-radius: 0 0 30% 100%;
+}
+
+.shadow {
+    position: absolute;
+    width: 30%;
+    height: 7%;
+    background: #bfc0c0;
+    left: 35%;
+    top: 80%;
+    border-radius: 50%;
+    animation: scale 2s infinite;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+.portfolio {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+
+
+.info-container {
+    background: white;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.5);
+}
+
+.info-description {
+    display: flex;
+    justify-content: space-between;
+     flex-direction: row-reverse;
+}
+
+.image-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.description-container{
+    max-width: 50%;
+}
+
+@media (max-width: 700px) {
+    .info-description {
+        display: block;
+    }
+    .image-container {
+        width: 150px;
+        height: 150px;
+        margin-left: 0;
+    }
+    .info-container {
+        padding: 20px 0;
+        margin: 30px;
+    }
+    .info-description {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .info-container h1{
+        text-align: center;
+    }
+    menu {
+        display: none;
+        flex-direction: column;
+    }
+    .description-container{
+        max-width: 75%;
+    }
+
+    .logo-container {
+        height: 100px;
+        width: 100px;
+    }
+    svg {
+        display: none;
+    }
+
+}
+
+.return-button {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.return-button a {
+    color: #46394B;
+    border-radius: 5px;
+    font-size: 21px;
+    text-decoration: None;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: 0.3s;
+    box-shadow: 0px 5px 10px #46394B;
+}
+
+.inline-comment {
+    display: flex;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.comment-author {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.comment-text {
+    margin-left: 20px;
+}
+
+.new-comment-container {
+    margin: 50px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.5);
+}
+
+.new-comment-container #id_text {
+    width: 90%;
+    height: 90px;
+    resize: none;
+
+
+}
+
+.new-comment-container textarea {
+    background-color: #46394B20;
+}
+
+.new-comment-container p {
+    display: flex;
+    justify-content: center;
+}
+
+.new-comment-container h3 {
+    display: flex;
+    justify-content: center;
+}
+
+
+.portfolio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.order-container {
+    margin: 50px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.5);
+}
+
+.order-container a {
+    text-decoration: none;
+    color: black;
+}
+
+.order-container a:hover {
+    color: #46394B;
+}
+
+.order-price, .order-author, .last-update, .order-body {
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+.order-title {
+    font-weight: bold;
+    font-size: 24px;
+
+}
+
+.order-price {
+    font-size: 21px;
+}
+
+.order-author {
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 20px;
+}
+
+.last-update {
+    font-size: 14px;
+    color: black;
+
+}
+
+.order-body {
+    /* Нет стилей здесь */
+}
+
+.inline-info {
+    display: flex;
+}
+
+.taken {
+    font-size: 14px;
+    color: black;
+    opacity: 90%;
+    margin-top: 12.5px;
+    margin-left: auto;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.buttons .edit a {
+    color: orange;
+    border-radius: 5px;
+    font-size: 21px;
+    text-decoration: None;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: 0.3s;
+    box-shadow: 0px 5px 10px orange;
+}
+
+.buttons .edit a:hover {
+    color: white;
+    background-color: orange;
+}
+
+.buttons .delete {
+    margin-left: 30px;
+}
+
+.buttons .delete a {
+    color: red;
+    border-radius: 5px;
+    font-size: 21px;
+    text-decoration: None;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    transition: 0.3s;
+    box-shadow: 0px 5px 10px red;
+}
+
+.buttons .delete a:hover {
+    color: white;
+    background-color: red;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer a {
+    color: #ffc600;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
